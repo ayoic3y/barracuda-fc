@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add("js");</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Матчи — ФК «Барракуда»</title>
+<meta name="description" content="Календарь и результаты ФК «Барракуда»: таблица Лига медиа команд Минска, форма команды и все сыгранные матчи.">
+<meta name="theme-color" content="#08061a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Футбольный клуб «Барракуда»">
+<meta property="og:title" content="Матчи — ФК «Барракуда»">
+<meta property="og:description" content="Календарь и результаты ФК «Барракуда»: таблица Лига медиа команд Минска, форма команды и все сыгранные матчи.">
+<meta property="og:image" content="assets/logo.png">
+<link rel="icon" href="assets/favicon.png" sizes="any">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><img src="assets/logo.png" alt="Эмблема ФК «Барракуда»"></span>
+      <span class="brand-text">
+        <span class="brand-name">Барракуда</span>
+        <span class="brand-tag">Barracuda FC · Minsk</span>
+      </span>
+    </a>
+    <nav class="nav">
+        <a href="index.html" class="">Главная</a>
+        <a href="matches.html" class="active">Матчи</a>
+        <a href="squad.html" class="">Состав</a>
+        <a href="news.html" class="">Новости</a>
+        <a href="club.html" class="">О клубе</a>
+        <a href="contacts.html" class="">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn--sm" href="contacts.html">Задонатить</a>
+      <button class="burger" type="button" data-burger aria-label="Меню" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+  <nav class="mobile-nav" data-mobile-nav>
+      <a href="index.html">Главная</a>
+      <a href="matches.html">Матчи</a>
+      <a href="squad.html">Состав</a>
+      <a href="news.html">Новости</a>
+      <a href="club.html">О клубе</a>
+      <a href="contacts.html">Контакты</a>
+    <a class="btn" href="contacts.html">Задонатить</a>
+  </nav>
+</header>
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Главная</a> / Матчи</div>
+    <h1>Матчи</h1>
+    <p class="lead">Календарь и результаты сезона 2026 в Лига медиа команд Минска, турнирная таблица и форма команды.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Форма команды</div>
+        <h2>Последние пять матчей</h2>
+      </div>
+      <div><span class="form-dots"><span class="form-dot w" title="победа">W</span><span class="form-dot w" title="победа">W</span><span class="form-dot l" title="поражение">L</span><span class="form-dot w" title="победа">W</span><span class="form-dot w" title="победа">W</span></span></div>
+    </div>
+    <div class="grid grid-4">
+      <div class="card reveal"><div class="card-num">10</div><div class="stat-label">Побед в основное время</div></div>
+      <div class="card reveal" data-delay="80"><div class="card-num">1</div><div class="stat-label">Побед по пенальти</div></div>
+      <div class="card reveal" data-delay="160"><div class="card-num">4</div><div class="stat-label">Поражений</div></div>
+      <div class="card reveal" data-delay="240"><div class="card-num">100:87</div><div class="stat-label">Забитые и пропущенные</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft" id="calendar">
+  <div class="container">
+    <div data-tabs>
+      <div class="tabs">
+        <button class="tab active" type="button" data-tab="cal" aria-selected="true">Календарь</button>
+        <button class="tab" type="button" data-tab="res" aria-selected="false">Результаты</button>
+        <button class="tab" type="button" data-tab="tbl" aria-selected="false">Таблица</button>
+      </div>
+
+      <div class="tabpanel active" data-panel="cal">
+        <h2>Ближайшие матчи</h2>
+        <p class="lead">Домашние игры — 67 школа, улица И.Я. Алибегова, 5А.</p>
+        <div class="fixtures" style="margin-top:24px">
+        <div class="fixture reveal">
+          <div class="fixture-date"><b>11.10.2026</b>Дома</div>
+          <div>
+            <div class="fixture-teams">
+              <span class="home">Барракуда</span>
+              <span class="vs">—</span>
+              <span class="away">неизвестно</span>
+            </div>
+            <div class="fixture-venue" style="margin-top:6px">Лига медиа команд Минска · 67 школа</div>
+          </div>
+          <div class="fixture-score">15:00</div>
+        </div>
+        </div>
+      </div>
+
+      <div class="tabpanel" data-panel="res">
+        <h2>Результаты сезона 2026</h2>
+        <p class="lead">Все сыгранные матчи — от игры с «Уан Медиа» до победы над «Снейкс».</p>
+        <div class="fixtures" style="margin-top:24px">
+        <div class="fixture reveal">
+          <div class="fixture-date"><b>04.10.2026</b>Дома</div>
+          <div>
+            <div class="fixture-teams">
+              <span class="home">Барракуда</span>
+              <span class="vs">—</span>
+              <span class="away">Снейкс</span>
+            </div>
+            <div class="fixture-venue" style="margin-top:6px">Лига медиа команд Минска · 67 школа</div>
+          </div>
+          <div class="fixture-score w">8:7</div>
+        </div>
+        <div class="fixture reveal">
+          <div class="fixture-date"><b>27.09.2026</b>Дома</div>
+          <div>
+            <div class="fixture-teams">
+              <span class="home">Барракуда</span>
+              <span class="vs">—</span>
+              <span class="away">Некст</span>
+            </div>
+            <div class="fixture-venue" style="margin-top:6px">Лига медиа команд Минска · 67 школа</div>
+          </div>
+          <div class="fixture-score w">14:10</div>
+        </div>
+        <div class="fixture reveal">
+          <div class="fixture-date"><b>20.09.2026</b>В гостях</div>
+          <div>
+            <div class="fixture-teams">
+              <span class="home">Альтстарт</span>
+              <span class="vs">—</span>
+              <span class="away">Барракуда</span>
+            </div>
+            <div class="fixture-venue" style="margin-top:6px">Лига медиа команд Минска · 87 школа</div>
+          </div>
+          <div class="fixture-score l">8:7</div>
+        </div>
+        <div class="fixture reveal">
+          <div class="fixture-date"><b>13.09.2026</b>Дома</div>
+          <div>
+            <div class="fixture-teams">
+              <span class="home">Барракуда</span>
+              <span class="vs">—</span>
+              <span class="away">Самураи</span>
+            </div>
+            <div class="fixture-venue" style="margin-top:6px">Лига медиа команд Минска · 67 школа</div>
+          </div>
+          <div class="fixture-score w">7:4</div>
+        </div>
+        <div class="fixture reveal">
+          <div class="fixture-date"><b>06.09.2026</b>Дома</div>
+          <div>
+            <div class="fixture-teams">
+              <span class="home">Барракуда</span>
+              <span class="vs">—</span>
+              <span class="away">Уан Медиа</span>
+            </div>
+            <div class="fixture-venue" style="margin-top:6px">Лига медиа команд Минска · 67 школа</div>
+          </div>
+          <div class="fixture-score w">9:7</div>
+        </div>
+        </div>
+      </div>
+
+      <div class="tabpanel" data-panel="tbl" id="table">
+        <h2>Лига медиа команд Минска · после 6 месяцев</h2>
+        <p class="lead">Уверенно занимаем третье место, а если вдруг обгоним второе, то станем первыми. Следующее обновление таблицы на этой неделе</p>
+        <div style="margin-top:24px">
+      <div class="table-wrap">
+        <table class="league-table">
+          <thead>
+            <tr>
+              <th class="num">#</th>
+              <th>Команда</th>
+              <th class="num" title="Матчи">И</th>
+              <th class="num" title="Победы в основное время">В</th>
+              <th class="num" title="Победы по пенальти">Вп</th>
+              <th class="num" title="Ничьи/поражения по пенальти">Н/Пп</th>
+              <th class="num" title="Поражения">П</th>
+              <th class="num" title="Забитые мячи">МЗ</th>
+              <th class="num" title="Пропущенные мячи">МП</th>
+              <th class="num" title="Разница мячей">Р</th>
+              <th class="num" title="Очки">О</th>
+              <th class="num" title="Процент набранных очков">%</th>
+              <th>Форма</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td class="num">1</td>
+            <td class="team-cell">Медведи</td>
+            <td class="num">20</td>
+            <td class="num">16</td>
+            <td class="num">1</td>
+            <td class="num">2</td>
+            <td class="num">1</td>
+            <td class="num">127</td>
+            <td class="num">53</td>
+            <td class="num">+74</td>
+            <td class="num pts">52</td>
+            <td class="num">87%</td>
+            <td><span class="form-dots form-dots--sm"><span class="form-dot w" title="победа">W</span><span class="form-dot wp" title="победа по пенальти">Wp</span><span class="form-dot lp" title="поражение по пенальти">Lp</span><span class="form-dot l" title="поражение">L</span><span class="form-dot w" title="победа">W</span></span></td>
+          </tr>
+          <tr>
+            <td class="num">2</td>
+            <td class="team-cell">Некст</td>
+            <td class="num">31</td>
+            <td class="num">11</td>
+            <td class="num">6</td>
+            <td class="num">1</td>
+            <td class="num">13</td>
+            <td class="num">171</td>
+            <td class="num">169</td>
+            <td class="num">+2</td>
+            <td class="num pts">46</td>
+            <td class="num">49%</td>
+            <td><span class="form-dots form-dots--sm"><span class="form-dot w" title="победа">W</span><span class="form-dot wp" title="победа по пенальти">Wp</span><span class="form-dot w" title="победа">W</span><span class="form-dot w" title="победа">W</span><span class="form-dot l" title="поражение">L</span></span></td>
+          </tr>
+          <tr class="is-club">
+            <td class="num">3</td>
+            <td class="team-cell">Барракуда</td>
+            <td class="num">16</td>
+            <td class="num">10</td>
+            <td class="num">1</td>
+            <td class="num">1</td>
+            <td class="num">4</td>
+            <td class="num">100</td>
+            <td class="num">87</td>
+            <td class="num">+13</td>
+            <td class="num pts">33</td>
+            <td class="num">69%</td>
+            <td><span class="form-dots form-dots--sm"><span class="form-dot w" title="победа">W</span><span class="form-dot w" title="победа">W</span><span class="form-dot l" title="поражение">L</span><span class="form-dot w" title="победа">W</span><span class="form-dot w" title="победа">W</span></span></td>
+          </tr>
+          <tr>
+            <td class="num">4</td>
+            <td class="team-cell">Уан Медиа</td>
+            <td class="num">20</td>
+            <td class="num">9</td>
+            <td class="num">1</td>
+            <td class="num">2</td>
+            <td class="num">8</td>
+            <td class="num">109</td>
+            <td class="num">87</td>
+            <td class="num">+22</td>
+            <td class="num pts">31</td>
+            <td class="num">52%</td>
+            <td><span class="form-dots form-dots--sm"><span class="form-dot l" title="поражение">L</span><span class="form-dot w" title="победа">W</span><span class="form-dot l" title="поражение">L</span><span class="form-dot l" title="поражение">L</span><span class="form-dot w" title="победа">W</span></span></td>
+          </tr>
+          <tr>
+            <td class="num">5</td>
+            <td class="team-cell">Альтстарт</td>
+            <td class="num">17</td>
+            <td class="num">8</td>
+            <td class="num">1</td>
+            <td class="num">1</td>
+            <td class="num">7</td>
+            <td class="num">76</td>
+            <td class="num">90</td>
+            <td class="num">-14</td>
+            <td class="num pts">27</td>
+            <td class="num">53%</td>
+            <td><span class="form-dots form-dots--sm"><span class="form-dot wp" title="победа по пенальти">Wp</span><span class="form-dot w" title="победа">W</span><span class="form-dot l" title="поражение">L</span><span class="form-dot w" title="победа">W</span><span class="form-dot l" title="поражение">L</span></span></td>
+          </tr>
+          <tr>
+            <td class="num">6</td>
+            <td class="team-cell">Лестери</td>
+            <td class="num">11</td>
+            <td class="num">7</td>
+            <td class="num">0</td>
+            <td class="num">1</td>
+            <td class="num">3</td>
+            <td class="num">64</td>
+            <td class="num">45</td>
+            <td class="num">+19</td>
+            <td class="num pts">22</td>
+            <td class="num">67%</td>
+            <td><span class="form-dots form-dots--sm"><span class="form-dot w" title="победа">W</span><span class="form-dot w" title="победа">W</span><span class="form-dot w" title="победа">W</span><span class="form-dot l" title="поражение">L</span><span class="form-dot lp" title="поражение по пенальти">Lp</span></span></td>
+          </tr>
+          <tr>
+            <td class="num">7</td>
+            <td class="team-cell">Ультрас</td>
+            <td class="num">8</td>
+            <td class="num">6</td>
+            <td class="num">0</td>
+            <td class="num">1</td>
+            <td class="num">1</td>
+            <td class="num">58</td>
+            <td class="num">34</td>
+            <td class="num">+24</td>
+            <td class="num pts">19</td>
+            <td class="num">79%</td>
+            <td><span class="form-dots form-dots--sm"><span class="form-dot lp" title="поражение по пенальти">Lp</span><span class="form-dot w" title="победа">W</span><span class="form-dot w" title="победа">W</span><span class="form-dot l" title="поражение">L</span><span class="form-dot w" title="победа">W</span></span></td>
+          </tr>
+          <tr>
+            <td class="num">8</td>
+            <td class="team-cell">Бобы</td>
+            <td class="num">13</td>
+            <td class="num">5</td>
+            <td class="num">0</td>
+            <td class="num">2</td>
+            <td class="num">6</td>
+            <td class="num">59</td>
+            <td class="num">59</td>
+            <td class="num">0</td>
+            <td class="num pts">17</td>
+            <td class="num">44%</td>
+            <td><span class="form-dots form-dots--sm"><span class="form-dot w" title="победа">W</span><span class="form-dot l" title="поражение">L</span><span class="form-dot l" title="поражение">L</span><span class="form-dot lp" title="поражение по пенальти">Lp</span><span class="form-dot w" title="победа">W</span></span></td>
+          </tr>
+          <tr>
+            <td class="num">9</td>
+            <td class="team-cell">Снейкс</td>
+            <td class="num">16</td>
+            <td class="num">4</td>
+            <td class="num">0</td>
+            <td class="num">2</td>
+            <td class="num">10</td>
+            <td class="num">54</td>
+            <td class="num">85</td>
+            <td class="num">-31</td>
+            <td class="num pts">14</td>
+            <td class="num">29%</td>
+            <td><span class="form-dots form-dots--sm"><span class="form-dot l" title="поражение">L</span><span class="form-dot lp" title="поражение по пенальти">Lp</span><span class="form-dot l" title="поражение">L</span><span class="form-dot l" title="поражение">L</span><span class="form-dot l" title="поражение">L</span></span></td>
+          </tr>
+          <tr>
+            <td class="num">10</td>
+            <td class="team-cell">МФК СКВАД</td>
+            <td class="num">5</td>
+            <td class="num">4</td>
+            <td class="num">0</td>
+            <td class="num">0</td>
+            <td class="num">1</td>
+            <td class="num">33</td>
+            <td class="num">18</td>
+            <td class="num">+15</td>
+            <td class="num pts">12</td>
+            <td class="num">80%</td>
+            <td><span class="form-dots form-dots--sm"><span class="form-dot w" title="победа">W</span><span class="form-dot l" title="поражение">L</span><span class="form-dot w" title="победа">W</span><span class="form-dot w" title="победа">W</span><span class="form-dot w" title="победа">W</span></span></td>
+          </tr>
+          <tr>
+            <td class="num">11</td>
+            <td class="team-cell">Сереба</td>
+            <td class="num">11</td>
+            <td class="num">3</td>
+            <td class="num">1</td>
+            <td class="num">0</td>
+            <td class="num">7</td>
+            <td class="num">58</td>
+            <td class="num">51</td>
+            <td class="num">+7</td>
+            <td class="num pts">11</td>
+            <td class="num">33%</td>
+            <td><span class="form-dots form-dots--sm"><span class="form-dot l" title="поражение">L</span><span class="form-dot w" title="победа">W</span><span class="form-dot l" title="поражение">L</span><span class="form-dot w" title="победа">W</span><span class="form-dot wp" title="победа по пенальти">Wp</span></span></td>
+          </tr>
+          <tr>
+            <td class="num">12</td>
+            <td class="team-cell">Интрига</td>
+            <td class="num">4</td>
+            <td class="num">3</td>
+            <td class="num">0</td>
+            <td class="num">0</td>
+            <td class="num">1</td>
+            <td class="num">21</td>
+            <td class="num">13</td>
+            <td class="num">+8</td>
+            <td class="num pts">9</td>
+            <td class="num">75%</td>
+            <td><span class="form-dots form-dots--sm"><span class="form-dot l" title="поражение">L</span><span class="form-dot w" title="победа">W</span><span class="form-dot w" title="победа">W</span><span class="form-dot w" title="победа">W</span></span></td>
+          </tr>
+          <tr>
+            <td class="num">13</td>
+            <td class="team-cell">Чижиболс</td>
+            <td class="num">3</td>
+            <td class="num">2</td>
+            <td class="num">0</td>
+            <td class="num">0</td>
+            <td class="num">1</td>
+            <td class="num">14</td>
+            <td class="num">13</td>
+            <td class="num">+1</td>
+            <td class="num pts">6</td>
+            <td class="num">67%</td>
+            <td><span class="form-dots form-dots--sm"><span class="form-dot w" title="победа">W</span><span class="form-dot l" title="поражение">L</span><span class="form-dot w" title="победа">W</span></span></td>
+          </tr>
+          <tr>
+            <td class="num">14</td>
+            <td class="team-cell">Титан</td>
+            <td class="num">5</td>
+            <td class="num">1</td>
+            <td class="num">0</td>
+            <td class="num">0</td>
+            <td class="num">3</td>
+            <td class="num">19</td>
+            <td class="num">26</td>
+            <td class="num">-7</td>
+            <td class="num pts">4</td>
+            <td class="num">27%</td>
+            <td><span class="form-dots form-dots--sm"><span class="form-dot lp" title="поражение по пенальти">Lp</span><span class="form-dot w" title="победа">W</span><span class="form-dot l" title="поражение">L</span><span class="form-dot l" title="поражение">L</span><span class="form-dot l" title="поражение">L</span></span></td>
+          </tr>
+          <tr>
+            <td class="num">15</td>
+            <td class="team-cell">Самураи</td>
+            <td class="num">2</td>
+            <td class="num">1</td>
+            <td class="num">0</td>
+            <td class="num">0</td>
+            <td class="num">1</td>
+            <td class="num">10</td>
+            <td class="num">11</td>
+            <td class="num">-1</td>
+            <td class="num pts">3</td>
+            <td class="num">50%</td>
+            <td><span class="form-dots form-dots--sm"><span class="form-dot w" title="победа">W</span><span class="form-dot l" title="поражение">L</span></span></td>
+          </tr>
+          <tr>
+            <td class="num">16</td>
+            <td class="team-cell">Коробка</td>
+            <td class="num">2</td>
+            <td class="num">0</td>
+            <td class="num">0</td>
+            <td class="num">1</td>
+            <td class="num">1</td>
+            <td class="num">6</td>
+            <td class="num">8</td>
+            <td class="num">-2</td>
+            <td class="num pts">1</td>
+            <td class="num">17%</td>
+            <td><span class="form-dots form-dots--sm"><span class="form-dot lp" title="поражение по пенальти">Lp</span><span class="form-dot l" title="поражение">L</span></span></td>
+          </tr>
+          <tr>
+            <td class="num">17</td>
+            <td class="team-cell">Прилуки</td>
+            <td class="num">4</td>
+            <td class="num">0</td>
+            <td class="num">0</td>
+            <td class="num">1</td>
+            <td class="num">3</td>
+            <td class="num">14</td>
+            <td class="num">26</td>
+            <td class="num">-12</td>
+            <td class="num pts">1</td>
+            <td class="num">8%</td>
+            <td><span class="form-dots form-dots--sm"><span class="form-dot d" title="ничья">D</span><span class="form-dot l" title="поражение">L</span><span class="form-dot l" title="поражение">L</span><span class="form-dot l" title="поражение">L</span></span></td>
+          </tr>
+          <tr>
+            <td class="num">18</td>
+            <td class="team-cell">Гиппо</td>
+            <td class="num">1</td>
+            <td class="num">0</td>
+            <td class="num">0</td>
+            <td class="num">0</td>
+            <td class="num">1</td>
+            <td class="num">6</td>
+            <td class="num">7</td>
+            <td class="num">-1</td>
+            <td class="num pts">0</td>
+            <td class="num">0%</td>
+            <td><span class="form-dots form-dots--sm"><span class="form-dot l" title="поражение">L</span></span></td>
+          </tr>
+          <tr>
+            <td class="num">19</td>
+            <td class="team-cell">Аисты-2</td>
+            <td class="num">2</td>
+            <td class="num">0</td>
+            <td class="num">0</td>
+            <td class="num">0</td>
+            <td class="num">2</td>
+            <td class="num">2</td>
+            <td class="num">16</td>
+            <td class="num">-14</td>
+            <td class="num pts">0</td>
+            <td class="num">0%</td>
+            <td><span class="form-dots form-dots--sm"><span class="form-dot l" title="поражение">L</span><span class="form-dot l" title="поражение">L</span></span></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>Приходите на 67 школу</h2>
+      <p>Драки, голы, привозы, эмоции — каждый матч полон этим. Только присутствуя на поле можешь пережить эту атмосферу.</p>
+      <div class="btn-row mt-32">
+        <a class="btn" href="club.html#stadium">Как добраться</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="Эмблема ФК «Барракуда»">
+          <div>
+            <div class="brand-name">Барракуда</div>
+            <div class="brand-tag">Barracuda FC · Minsk</div>
+          </div>
+        </div>
+        <p>Минский любительский (а может и каплю медиа) клуб. Никогда не сдаёмся, дальше — только меньше!</p>
+        <div class="socials">
+          <a href="#" title="ВКонтакте" rel="noopener">VK</a>
+          <a href="#" title="Telegram" rel="noopener">TG</a>
+          <a href="#" title="YouTube" rel="noopener">YT</a>
+          <a href="#" title="Дзен" rel="noopener">DZ</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Клуб</h4>
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="matches.html">Матчи</a></li>
+          <li><a href="squad.html">Состав</a></li>
+          <li><a href="news.html">Новости</a></li>
+          <li><a href="club.html">О клубе</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Болельщикам</h4>
+        <ul>
+          <li><a href="club.html#stadium">Как добраться</a></li>
+          <li><a href="contacts.html#faq">Вопросы и ответы</a></li>
+          <li><a href="contacts.html">Задонатить</a></li>
+          <li><a href="contacts.html">Связаться с клубом</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Футбольный клуб «Барракуда». Все права защищены.</span>
+      <span>г. Минск</span>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

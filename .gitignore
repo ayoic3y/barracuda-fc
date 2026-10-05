@@ -1,0 +1,13 @@
+# служебные папки браузера (появляются при съёмке скриншотов)
+.cp*/
+.cm*/
+.chrome-profile*/
+
+# системный мусор
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# кэш Python
+__pycache__/
+*.pyc
