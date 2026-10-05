@@ -76,12 +76,28 @@ def fmt_time(iso: str) -> str:
 
 
 def initials(name: str) -> str:
-    parts = [p for p in name.replace("«", "").replace("»", "").replace("(", " ").replace(")", " ").split() if p]
+    """Инициалы для заглушки фото: сначала пробуем ник в скобках."""
+    if "(" in name and ")" in name:
+        nick = name[name.index("(") + 1:name.index(")")].strip()
+        if nick:
+            return nick[:2].upper()
+    parts = [p for p in name.replace("«", "").replace("»", "").split() if p]
     if not parts:
         return "??"
-    if len(parts) == 1:
-        return parts[0][:2].upper()
-    return (parts[0][0] + parts[1][0]).upper()
+    return parts[0][:2].upper()
+
+
+def plural(n, forms) -> str:
+    """forms = ("гол", "гола", "голов")."""
+    n = abs(int(n)) % 100
+    if 11 <= n <= 14:
+        return forms[2]
+    n %= 10
+    if n == 1:
+        return forms[0]
+    if 2 <= n <= 4:
+        return forms[1]
+    return forms[2]
 
 
 def badge_colors(name: str):
@@ -132,6 +148,14 @@ LEAGUE_HEAD = f"{CLUB['league']} · после 6 месяцев"
 LEAGUE_NOTE = "Уверенно занимаем третье место, а если вдруг обгоним второе, то станем первыми. Следующее обновление таблицы на этой неделе"
 
 SCORERS = sorted(D.SCORERS, key=lambda p: -(p["goals"] + p["assists"]))
+
+# статистика строго за последние 5 матчей (карточки на странице «Матчи»)
+LAST5 = PLAYED[-5:]
+L5_W = sum(1 for m in LAST5 if outcome(m) == "w")
+L5_D = sum(1 for m in LAST5 if outcome(m) == "d")
+L5_L = sum(1 for m in LAST5 if outcome(m) == "l")
+L5_GF = sum(our_result(m)[0] for m in LAST5)
+L5_GA = sum(our_result(m)[1] for m in LAST5)
 
 
 # ==========================================================================
@@ -332,21 +356,22 @@ def news_card(item, depth: int = 0, wide: bool = False) -> str:
 
 
 def player_card(player, depth: int = 0) -> str:
-    cap = '<span class="captain-badge">Капитан</span>' if player.get("captain") else ""
     photo = PHOTO.get(str(player["num"]), f"p{player['num']}.svg")
-    goals_word = "гол" if player["goals"] == 1 else "голов"
+    year = f"{player['born']} г." if player.get("born") else "Год уточняется"
+    goals, assists = player["goals"], player["assists"]
+    stats = (f"{goals} {plural(goals, ('гол', 'гола', 'голов'))} · "
+             f"{assists} {plural(assists, ('ассист', 'ассиста', 'ассистов'))}")
     return f"""        <article class="player-card reveal" data-cat="{player['group']}">
           <div class="player-photo">
             <img src="{rel(depth)}assets/players/{photo}" alt="{esc(player['name'])}" loading="lazy">
             <span class="player-num">#{player['num']}</span>
-            {cap}
           </div>
           <div class="player-info">
             <div class="player-name">{esc(player['name'])}</div>
             <div class="player-pos">{esc(player['pos'])}</div>
             <div class="player-meta">
-              <span>{player['born']} г. · {player['height']} см</span>
-              <span>{player['apps']} матчей · {player['goals']} {goals_word}</span>
+              <span>{esc(year)}</span>
+              <span>{stats}</span>
             </div>
           </div>
         </article>"""
@@ -504,8 +529,8 @@ def cta_band(depth: int = 0) -> str:
 <section class="section">
   <div class="container">
     <div class="cta-band reveal">
-      <h2>Приходите на 67 школу</h2>
-      <p>Драки, голы, привозы, эмоции — каждый матч полон этим. Только присутствуя на поле можешь пережить эту атмосферу.</p>
+      <h2>Приходите поддержать</h2>
+      <p>А также насладиться привозами, драками, промахами с метра и незабываемыми эмоциями как в Лиге чемпионов.</p>
       <div class="btn-row mt-32">
         <a class="btn" href="{rel(depth)}club.html#stadium">Как добраться</a>
       </div>
@@ -672,7 +697,7 @@ def build_index() -> None:
     <div class="section-head">
       <div>
         <div class="eyebrow">Новости клуба</div>
-        <h2>Что происходит в «Барракуде»</h2>
+        <h2>Как мы живём</h2>
       </div>
       <a class="btn btn--ghost btn--sm" href="news.html">Все новости</a>
     </div>
@@ -703,7 +728,7 @@ def build_index() -> None:
     <div class="grid grid-2" style="align-items:start;gap:34px">
       <div>
         <div class="eyebrow">Лидеры</div>
-        <h2>Гонка бомбардиров</h2>
+        <h2>Статистика</h2>
         <p>Лучшие снайперы, которые целятся по воробьям, а попадают по воротам</p>
 {scorers_table()}
       </div>
@@ -759,10 +784,10 @@ def build_matches() -> None:
       <div>{form_dots(FORM)}</div>
     </div>
     <div class="grid grid-4">
-      <div class="card reveal"><div class="card-num">{CLUB_ROW.get('w', 0)}</div><div class="stat-label">Побед в основное время</div></div>
-      <div class="card reveal" data-delay="80"><div class="card-num">{CLUB_ROW.get('wp', 0)}</div><div class="stat-label">Побед по пенальти</div></div>
-      <div class="card reveal" data-delay="160"><div class="card-num">{CLUB_ROW.get('l', 0)}</div><div class="stat-label">Поражений</div></div>
-      <div class="card reveal" data-delay="240"><div class="card-num">{CLUB_ROW.get('gf', 0)}:{CLUB_ROW.get('ga', 0)}</div><div class="stat-label">Забитые и пропущенные</div></div>
+      <div class="card reveal"><div class="card-num">{L5_W}</div><div class="stat-label">Побед за последние 5 матчей</div></div>
+      <div class="card reveal" data-delay="80"><div class="card-num">{L5_D}</div><div class="stat-label">Ничьих</div></div>
+      <div class="card reveal" data-delay="160"><div class="card-num">{L5_L}</div><div class="stat-label">Поражений</div></div>
+      <div class="card reveal" data-delay="240"><div class="card-num">{L5_GF}:{L5_GA}</div><div class="stat-label">Забитые и пропущенные</div></div>
     </div>
   </div>
 </section>
@@ -814,9 +839,8 @@ def build_matches() -> None:
 # Состав
 # ==========================================================================
 def build_squad() -> None:
-    # вратари → защитники → полузащитники → нападающие (внутри группы — как в data.py)
-    order = {"gk": 0, "df": 1, "mf": 2, "fw": 3}
-    squad = sorted(D.SQUAD, key=lambda p: order.get(p["group"], 9))
+    # карточки идут в порядке возрастания номеров
+    squad = sorted(D.SQUAD, key=lambda p: p["num"])
     cards = "\n".join(player_card(p) for p in squad)
     chips = []
     for key, label in D.SQUAD_GROUPS:
@@ -829,9 +853,10 @@ def build_squad() -> None:
         f'<b data-filter-count>{len(D.SQUAD)}</b></span>'
     )
     chips_html = "\n".join(chips)
-    avg_age = round(sum(NOW.year - p["born"] for p in D.SQUAD) / len(D.SQUAD))
+    ages = [NOW.year - p["born"] for p in D.SQUAD if p.get("born")]
+    avg_age = round(sum(ages) / len(ages)) if ages else 0
     body = page_hero("Состав",
-                     f"{len(D.SQUAD)} игрока в заявке, средний возраст {avg_age} лет.",
+                     f"{len(D.SQUAD)} {plural(len(D.SQUAD), ('игрок', 'игрока', 'игроков'))} в заявке, средний возраст {avg_age} лет.",
                      "Состав") + f"""
 <section class="section">
   <div class="container">
@@ -865,7 +890,7 @@ def build_squad() -> None:
     <div class="section-head">
       <div>
         <div class="eyebrow">Лидеры</div>
-        <h2>Гонка бомбардиров</h2>
+        <h2>Статистика</h2>
         <p>Лучшие снайперы, которые целятся по воробьям, а попадают по воротам</p>
       </div>
     </div>
@@ -940,7 +965,6 @@ def build_news() -> None:
 <section class="section">
   <div class="container" style="max-width:820px">
 {image_html}
-    <p class="lead">{esc(item['excerpt'])}</p>
 {paragraphs}
     <div class="btn-row mt-32">
       <a class="btn btn--ghost btn--sm" href="../news.html">← Все новости</a>
@@ -999,7 +1023,7 @@ def build_club() -> None:
       <div>
         <div class="eyebrow">Наша история</div>
         <h2>Как всё начиналось</h2>
-        <p>{esc(CLUB['intro'])}.</p>
+        <p>{esc(CLUB['history'])}</p>
         <p>Команда играет в {esc(CLUB['league'])}. После 6 месяцев сезона {esc(CLUB['season'])} «Барракуда» идёт третьей в таблице: {CLUB_ROW.get('w', 0)} побед в основное время, {CLUB_ROW.get('wp', 0)} по пенальти, {CLUB_ROW.get('gf', 0)} забитых мячей.</p>
         <p>{esc(CLUB['motto'])}</p>
       </div>
