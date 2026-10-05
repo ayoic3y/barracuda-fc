@@ -1,0 +1,9 @@
+# Единые переводы строк: текст — LF, .cmd — CRLF (чтобы git не показывал
+# ложных изменений при работе на Windows и на сервере GitHub)
+* text=auto eol=lf
+*.cmd text eol=crlf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary
