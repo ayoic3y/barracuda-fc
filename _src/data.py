@@ -63,7 +63,7 @@ SQUAD = [
     {"num": 4, "name": "Ваня (VANEK)", "pos": "Центральный защитник", "group": "df", "born": 2007, "goals": 0, "assists": 6},
     {"num": 6, "name": "Андрей", "pos": "Центральный защитник", "group": "df", "born": None, "goals": 0, "assists": 0},
     {"num": 7, "name": "Кирилл (KYZA)", "pos": "Атакующий полузащитник", "group": "mf", "born": 2008, "goals": 6, "assists": 11},
-    {"num": 8, "name": "Влад (VLAD LUV)", "pos": "Левый/правый защитник", "group": "df", "born": 2005, "goals": 1, "assists": 2},
+    {"num": 8, "name": "Влад (VLAD LUV)", "pos": "Левый/правый защитник", "group": "df", "born": 2005, "goals": 2, "assists": 1},
     {"num": 9, "name": "Тимур (TIMURIK)", "pos": "Центральный нападающий", "group": "fw", "born": 2007, "goals": 16, "assists": 4},
     {"num": 10, "name": "Илья (GIRO)", "pos": "Центральный нападающий", "group": "fw", "born": None, "goals": 2, "assists": 1},
     {"num": 11, "name": "Илья (АЙСИ)", "pos": "Правый/левый вингер", "group": "mf", "born": 2006, "goals": 4, "assists": 2},
@@ -79,7 +79,7 @@ SQUAD = [
     {"num": 21, "name": "Даник (RADCH)", "pos": "Центральный нападающий", "group": "fw", "born": 2007, "goals": 30, "assists": 3},
     {"num": 22, "name": "Сеня (ARSENNKKA)", "pos": "Правый/левый вингер", "group": "mf", "born": 2006, "goals": 4, "assists": 8},
     {"num": 24, "name": "Игорь", "pos": "Центральный нападающий", "group": "fw", "born": None, "goals": 0, "assists": 3},
-    {"num": 25, "name": "Влад", "pos": "Правый/левый вингер", "group": "mf", "born": None, "goals": 2, "assists": 1},
+    {"num": 25, "name": "Влад", "pos": "Правый/левый вингер", "group": "mf", "born": None, "goals": 1, "assists": 2},
     {"num": 77, "name": "Тоха (TOFFA)", "pos": "Правый/левый полузащитник", "group": "mf", "born": 2007, "goals": 4, "assists": 3},
     {"num": 84, "name": "Игнат (ALIVARIAAAA)", "pos": "Центральный защитник", "group": "df", "born": 2006, "goals": 2, "assists": 7},
 ]
