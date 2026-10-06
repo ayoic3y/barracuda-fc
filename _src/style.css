@@ -386,7 +386,7 @@ p { margin: 0 0 1em; color: var(--text-soft); }
 }
 .news-media::after { content: ""; position: absolute; inset: 0; background-image: radial-gradient(circle at 22% 24%, rgba(255, 255, 255, 0.22), transparent 55%); }
 .news-media .glyph { font-family: var(--font-head); font-size: 3.6rem; font-weight: 700; color: rgba(255, 255, 255, 0.9); letter-spacing: 0.06em; text-align: center; }
-.news-media img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; }
+.news-media img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; }
 .article-img { width: 100%; border-radius: var(--radius); margin-bottom: 28px; }
 .news-body { padding: 22px 24px 26px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .news-body h3 { margin: 0; font-size: 1.08rem; }
@@ -516,7 +516,7 @@ td.pts { font-family: var(--font-head); font-weight: 700; font-size: 1rem; }
 
 .player-card:hover { transform: translateY(-6px); border-color: var(--violet); box-shadow: 0 34px 64px -34px rgba(124, 58, 237, 0.95); }
 .player-photo { position: relative; aspect-ratio: 1 / 1.06; background: radial-gradient(circle at 50% 30%, rgba(167, 139, 250, 0.34), rgba(11, 7, 34, 0.96)); }
-.player-photo img { width: 100%; height: 100%; object-fit: cover; }
+.player-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .player-num { position: absolute; top: 12px; right: 14px; font-family: var(--font-head); font-size: 1.6rem; font-weight: 700; color: rgba(255, 255, 255, 0.92); text-shadow: 0 4px 18px rgba(0, 0, 0, 0.6); }
 .player-info { padding: 16px 18px 20px; }
 .player-name { font-family: var(--font-head); font-size: 1.02rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
@@ -670,6 +670,7 @@ td.pts { font-family: var(--font-head); font-weight: 700; font-size: 1rem; }
 @media (max-width: 520px) {
   .grid-3, .grid-2, .grid-4, .squad-grid { grid-template-columns: 1fr; }
   .news-card--wide { grid-column: span 1; }
+  .news-card--wide .news-media { aspect-ratio: 16 / 10; }
   .container { padding: 0 18px; }
   .brand-tag { display: none; }
   .match-teams { gap: 8px; }
