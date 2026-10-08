@@ -587,6 +587,22 @@ td.pts { font-family: var(--font-head); font-weight: 700; font-size: 1rem; }
 
 .pin { width: 16px; height: 16px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.24); margin: 0 auto 14px; }
 
+/* Карта-скриншот с меткой на футбольном поле */
+.map-photo { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: var(--bg-elev); }
+.map-photo img { display: block; width: 100%; height: auto; }
+.map-photo .pin--on-map { position: absolute; left: var(--pin-x, 50%); top: var(--pin-y, 50%); margin: 0; transform: translate(-50%, -50%); box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.3), 0 0 26px rgba(56, 189, 248, 0.85); }
+.map-photo__caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 18px 14px; background: linear-gradient(transparent, rgba(8, 6, 26, 0.94)); }
+
+/* Большие кнопки-ссылки на соцсети */
+.link-cards { display: grid; gap: 14px; }
+.link-card { display: flex; flex-direction: column; gap: 4px; padding: 22px 24px; border-radius: var(--radius); border: 1px solid var(--line-strong); background: linear-gradient(140deg, rgba(124, 58, 237, 0.4), rgba(13, 9, 37, 0.92)); transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.2s ease; }
+.link-card:hover { transform: translateY(-3px); border-color: var(--violet); box-shadow: 0 26px 54px -30px rgba(124, 58, 237, 0.95); }
+.link-card__label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--violet-soft); }
+.link-card__value { font-family: var(--font-head); font-size: 1.45rem; font-weight: 600; }
+.link-card__hint { font-size: 0.82rem; color: var(--muted); }
+.link-card--tg { background: linear-gradient(140deg, rgba(41, 161, 220, 0.5), rgba(13, 9, 37, 0.92)); }
+.link-card--ig { background: linear-gradient(140deg, rgba(214, 41, 118, 0.5), rgba(124, 58, 237, 0.4), rgba(13, 9, 37, 0.92)); }
+
 /* FAQ */
 .faq-item { border: 1px solid var(--line); border-radius: var(--radius-sm); background: rgba(255, 255, 255, 0.03); padding: 4px 20px; }
 .faq-item + .faq-item { margin-top: 12px; }

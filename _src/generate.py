@@ -144,8 +144,8 @@ FORM = [outcome(m) for m in PLAYED[-5:]]
 
 CLUB_ROW = next((t for t in D.STANDINGS if t["team"] == NAME), {})
 PLACE = next((i for i, t in enumerate(D.STANDINGS, start=1) if t["team"] == NAME), 0)
-LEAGUE_HEAD = f"{CLUB['league']} · после 6 месяцев"
-LEAGUE_NOTE = "Уверенно занимаем третье место, а если вдруг обгоним второе, то станем первыми. Следующее обновление таблицы на этой неделе"
+LEAGUE_HEAD = D.LEAGUE_HEAD
+LEAGUE_NOTE = D.LEAGUE_NOTE
 
 SCORERS = sorted(D.SCORERS, key=lambda p: -(p["goals"] + p["assists"]))
 
@@ -539,6 +539,18 @@ def cta_band(depth: int = 0) -> str:
 </section>"""
 
 
+def social_link_card(s) -> str:
+    url = s["url"]
+    handle = url.rstrip("/").split("/")[-1]
+    if not handle.startswith("@"):
+        handle = "@" + handle
+    return (f'        <a class="link-card link-card--{esc(s["label"].lower())}" href="{esc(url)}"'
+            f' target="_blank" rel="noopener">'
+            f'<span class="link-card__label">{esc(s["title"])}</span>'
+            f'<span class="link-card__value">{esc(handle)}</span>'
+            f'<span class="link-card__hint">{esc(url.replace("https://", ""))}</span></a>')
+
+
 def facts_cards(cards) -> str:
     return "\n".join(
         f'        <div class="card reveal" data-delay="{i * 70}"><div class="card-num">{esc(f["num"])}</div>'
@@ -582,7 +594,8 @@ def write_assets() -> None:
     players = assets / "players"
     players.mkdir(parents=True, exist_ok=True)
 
-    static = ["logo.png", "logo.svg", "favicon.png", "favicon-32.png", "favicon.svg", "apple-touch-icon.png"]
+    static = ["logo.png", "logo.svg", "favicon.png", "favicon-32.png", "favicon.svg",
+              "apple-touch-icon.png", "map-67.jpg"]
     for name in static:
         src = SRC / "assets" / name
         if src.exists():
@@ -842,6 +855,19 @@ def build_squad() -> None:
     # карточки идут в порядке возрастания номеров
     squad = sorted(D.SQUAD, key=lambda p: p["num"])
     cards = "\n".join(player_card(p) for p in squad)
+    if D.STAFF:
+        staff_cards = "\n".join(
+            f"""        <div class="card staff-card reveal" data-delay="{i * 70}">
+          <div class="staff-avatar">{esc(initials(s['name']))}</div>
+          <div class="player-name">{esc(s['name'])}</div>
+          <div class="staff-role">{esc(s['role'])}</div>
+          <p style="margin-top:12px;font-size:.9rem">{esc(s['note'])}</p>
+        </div>"""
+            for i, s in enumerate(D.STAFF)
+        )
+    else:
+        staff_cards = (f'        <div class="card reveal" style="grid-column:1/-1">'
+                       f'<p style="margin:0;font-size:.95rem">{esc(D.STAFF_EMPTY_TEXT)}</p></div>')
     chips = []
     for key, label in D.SQUAD_GROUPS:
         active = " active" if key == "all" else ""
@@ -886,6 +912,21 @@ def build_squad() -> None:
 </section>
 
 <section class="section section--soft">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Штаб</div>
+        <h2>Тренерский штаб</h2>
+        <p>Тренеры, аналитик и врач команды.</p>
+      </div>
+    </div>
+    <div class="grid grid-2">
+{staff_cards}
+    </div>
+  </div>
+</section>
+
+<section class="section">
   <div class="container">
     <div class="section-head">
       <div>
@@ -1048,11 +1089,12 @@ def build_club() -> None:
           <div class="info-row"><span class="ico">🎟️</span><div><b>Вход</b><span>свободный — приходите с друзьями и в цветах клуба</span></div></div>
         </div>
       </div>
-      <div class="map-placeholder">
-        <div>
-          <div class="pin"></div>
+      <div class="map-photo" style="--pin-x:{esc(CLUB['map']['pin_x'])};--pin-y:{esc(CLUB['map']['pin_y'])}">
+        <img src="assets/{esc(CLUB['map']['image'])}" alt="Карта: {esc(st['name'])}, {esc(CLUB['city'])}" loading="lazy">
+        <span class="pin pin--on-map" title="{esc(st['name'])}"></span>
+        <div class="map-photo__caption">
           <div class="player-name">{esc(st['name'])}</div>
-          <p class="muted" style="margin-top:8px">г. {esc(CLUB['city'])}, {esc(st['address'])}<br>домашние матчи {esc(CLUB['league'])}</p>
+          <p class="muted" style="margin:4px 0 0">г. {esc(CLUB['city'])}, {esc(st['address'])}</p>
         </div>
       </div>
     </div>
@@ -1077,13 +1119,10 @@ def build_contacts() -> None:
         </details>"""
         for q, a in D.FAQ
     )
-    socials = "\n".join(
-        f'        <a href="{esc(s["url"])}" title="{esc(s["title"])}" rel="noopener">{esc(s["title"])}</a>'
-        for s in D.SOCIALS
-    )
-    st = CLUB["stadium"]
+    topics = "\n".join(f"              <option>{esc(t)}</option>" for t in D.CONTACT_TOPICS)
+    links = "\n".join(social_link_card(s) for s in D.SOCIALS)
     body = page_hero("Контакты",
-                     "Как связаться с клубом, где мы играем и как поддержать команду.",
+                     "Как связаться с клубом и где нас найти в соцсетях.",
                      "Контакты") + f"""
 <section class="section">
   <div class="container">
@@ -1092,7 +1131,7 @@ def build_contacts() -> None:
         <div class="eyebrow">Написать клубу</div>
         <h2>Форма обратной связи</h2>
         <p>Хотите в состав, есть вопрос по матчу, идея для контента или предложение о партнёрстве — пишите.</p>
-        <form class="form mt-32" data-demo-form data-success="Сообщение отправлено! Ответим в ближайшее время.">
+        <form class="form mt-32" action="thanks.html" method="get">
           <div class="field">
             <label for="name">Имя</label>
             <input id="name" name="name" type="text" placeholder="Как к вам обращаться" required>
@@ -1104,12 +1143,7 @@ def build_contacts() -> None:
           <div class="field">
             <label for="topic">Тема</label>
             <select id="topic" name="topic">
-              <option>Хочу в состав</option>
-              <option>Вопрос по матчу</option>
-              <option>Донат и поддержка клуба</option>
-              <option>Партнёрство и реклама</option>
-              <option>Пресс-служба</option>
-              <option>Другое</option>
+{topics}
             </select>
           </div>
           <div class="field">
@@ -1122,42 +1156,11 @@ def build_contacts() -> None:
       </div>
 
       <div>
-        <div class="eyebrow">Где мы играем</div>
-        <h2>{esc(st['name'])}</h2>
-        <div class="info-list mt-32">
-          <div class="info-row">
-            <span class="ico">📍</span>
-            <div><b>Адрес</b><span>г. {esc(CLUB['city'])}, {esc(st['address'])}</span>
-            <span>домашние матчи {esc(CLUB['league'])}</span></div>
-          </div>
-          <div class="info-row">
-            <span class="ico">🗓️</span>
-            <div><b>Матчи</b><span>даты и время — в разделе «Матчи»</span>
-            <span>вход свободный</span></div>
-          </div>
-          <div class="info-row">
-            <span class="ico">❤️</span>
-            <div><b>Поддержать клуб</b><a href="{link(CLUB['donate_url'])}">Задонатить</a>
-            <span>мячи, экипировка и аренда поля</span></div>
-          </div>
-          <div class="info-row">
-            <span class="ico">📣</span>
-            <div><b>Пресс-служба</b><span>все новости и анонсы — в наших соцсетях</span>
-            <span>пишите через форму слева</span></div>
-          </div>
-        </div>
-
-        <h3 style="margin-top:34px">Соцсети клуба</h3>
-        <div class="socials socials--text" style="flex-wrap:wrap">
-{socials}
-        </div>
-
-        <div class="map-placeholder" style="margin-top:30px;min-height:240px">
-          <div>
-            <div class="pin"></div>
-            <div class="player-name">{esc(st['name'])}</div>
-            <p class="muted" style="margin-top:8px">г. {esc(CLUB['city'])}, {esc(st['address'])}</p>
-          </div>
+        <div class="eyebrow">Мы в сети</div>
+        <h2>Соцсети команды</h2>
+        <p>Все анонсы, составы и разборы матчей — здесь. Заходите и подписывайтесь.</p>
+        <div class="link-cards mt-32">
+{links}
         </div>
       </div>
     </div>
@@ -1184,6 +1187,46 @@ def build_contacts() -> None:
 
 # ==========================================================================
 # Служебные страницы и файлы
+def build_thanks() -> None:
+    body = f"""
+<section class="section">
+  <div class="container center" style="padding:70px 0;max-width:820px">
+    <p style="font-size:1.45rem;font-weight:700;line-height:1.45;margin:0 0 32px">
+      <strong>{esc(D.CONTACT_THANKS)}</strong>
+    </p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn" href="index.html">На главную</a>
+      <a class="btn btn--ghost" href="news.html">Новости клуба</a>
+    </div>
+  </div>
+</section>
+"""
+    page("thanks.html", f"Спасибо — ФК «{NAME}»",
+         "Спасибо за ваше сообщение!", "", body)
+
+
+def build_donate() -> None:
+    d = D.DONATE
+    body = page_hero(d["title"], d["note"], d["title"]) + f"""
+<section class="section">
+  <div class="container center" style="max-width:780px">
+    <p style="margin:0 0 10px;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)">Карта для перевода</p>
+    <p style="font-family:var(--font-head);font-size:clamp(1.25rem,3.6vw,2rem);font-weight:700;letter-spacing:.04em;margin:0 0 12px">
+      <strong>{esc(d['card'])}</strong>
+    </p>
+    <p style="font-size:1.15rem;font-weight:700;margin:0 0 30px"><strong>{esc(d['bank'])}</strong></p>
+    <p class="muted" style="margin-bottom:30px">Переведите любую сумму — этого достаточно. Спасибо, что поддерживаете команду.</p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn" href="index.html">На главную</a>
+      <a class="btn btn--ghost" href="contacts.html">Связаться с клубом</a>
+    </div>
+  </div>
+</section>
+"""
+    page("donate.html", f"Задонатить — ФК «{NAME}»",
+         "Реквизиты карты для поддержки команды.", "", body)
+
+
 # ==========================================================================
 def build_service() -> None:
     page("404.html", f"Страница не найдена — ФК «{NAME}»",
@@ -1202,7 +1245,8 @@ def build_service() -> None:
 </section>
 """)
 
-    urls = ["index.html", "matches.html", "squad.html", "news.html", "club.html", "contacts.html"]
+    urls = ["index.html", "matches.html", "squad.html", "news.html", "club.html",
+            "contacts.html", "donate.html"]
     urls += [f"news/{n['slug']}.html" for n in D.NEWS]
     today = datetime.now().strftime("%Y-%m-%d")
     site = CLUB.get("site_url", "").rstrip("/")
@@ -1233,6 +1277,8 @@ def main() -> None:
     build_news()
     build_club()
     build_contacts()
+    build_thanks()
+    build_donate()
     build_service()
     total = len(list(OUT.rglob("*.html")))
     print(f"Готово: {total} HTML-страниц")
