@@ -536,7 +536,8 @@ td.pts { font-family: var(--font-head); font-weight: 700; font-size: 1rem; }
 
 /* ---------- Staff / trophies ---------- */
 .staff-card { text-align: center; }
-.staff-avatar { width: 92px; height: 92px; margin: 0 auto 16px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-head); font-size: 1.7rem; font-weight: 700; background: var(--grad); box-shadow: 0 18px 36px -20px rgba(124, 58, 237, 0.95); }
+.staff-avatar { width: 92px; height: 92px; margin: 0 auto 16px; border-radius: 50%; overflow: hidden; display: grid; place-items: center; font-family: var(--font-head); font-size: 1.7rem; font-weight: 700; background: var(--grad); box-shadow: 0 18px 36px -20px rgba(124, 58, 237, 0.95); }
+.staff-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
 .staff-role { font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--violet-soft); }
 
 .trophy { display: flex; align-items: center; gap: 18px; }

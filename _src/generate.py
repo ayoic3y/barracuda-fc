@@ -34,6 +34,7 @@ def _asset_version() -> str:
 ASSET_VER = _asset_version()
 
 CLUB = D.CLUB
+TEAM_LOGOS = D.TEAM_LOGOS
 NAME = CLUB["name"]
 MONTHS = [
     "января", "февраля", "марта", "апреля", "мая", "июня",
@@ -306,6 +307,10 @@ def team_badge(team: str, depth: int = 0) -> str:
                 f'<img src="{rel(depth)}assets/logo.png" alt="{esc(team)}"></span>')
     if team.strip().lower() in UNKNOWN_TEAM:
         return '<span class="team-badge team-badge--unknown">?</span>'
+    logo = TEAM_LOGOS.get(team)
+    if logo:
+        return (f'<span class="team-badge team-badge--light">'
+                f'<img src="{rel(depth)}assets/{esc(logo)}" alt="{esc(team)}"></span>')
     c1, c2 = badge_colors(team)
     return (f'<span class="team-badge" style="background:linear-gradient(140deg,{c1},{c2})">'
             f'{esc(initials(team))}</span>')
@@ -609,10 +614,24 @@ def write_assets() -> None:
 
     static = ["logo.png", "logo.svg", "favicon.png", "favicon-32.png", "favicon.svg",
               "apple-touch-icon.png", "map-67.jpg"]
-    for name in static:
+
+    # логотипы соперников из TEAM_LOGOS (например teams/fate.png)
+    for name in static + [t for t in D.TEAM_LOGOS.values() if t]:
         src = SRC / "assets" / name
         if src.exists():
-            shutil.copy2(src, assets / name)
+            dst = assets / name
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(src, dst)
+
+    # фото руководства из _src/assets/staff/
+    for s in D.STAFF:
+        photo = (s.get("photo") or "").strip()
+        if photo:
+            src = SRC / "assets" / photo
+            if src.exists():
+                dst = assets / photo
+                dst.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(src, dst)
 
     # Фото игроков: _src/assets/players/p<номер>.jpg|png — заменяет заглушку
     photo_dir = SRC / "assets" / "players"
@@ -869,15 +888,20 @@ def build_squad() -> None:
     squad = sorted(D.SQUAD, key=lambda p: p["num"])
     cards = "\n".join(player_card(p) for p in squad)
     if D.STAFF:
-        staff_cards = "\n".join(
-            f"""        <div class="card staff-card reveal" data-delay="{i * 70}">
-          <div class="staff-avatar">{esc(initials(s['name']))}</div>
+        staff_list = []
+        for i, s in enumerate(D.STAFF):
+            note = (f'\n          <p style="margin-top:12px;font-size:.9rem">{esc(s["note"])}</p>'
+                    if s.get("note") else "")
+            avatar = (f'<img src="assets/{esc(s["photo"])}" alt="{esc(s["name"])}">'
+                      if s.get("photo") else esc(initials(s['name'])))
+            staff_list.append(
+                f"""        <div class="card staff-card reveal" data-delay="{i * 70}">
+          <div class="staff-avatar">{avatar}</div>
           <div class="player-name">{esc(s['name'])}</div>
-          <div class="staff-role">{esc(s['role'])}</div>
-          <p style="margin-top:12px;font-size:.9rem">{esc(s['note'])}</p>
+          <div class="staff-role">{esc(s['role'])}</div>{note}
         </div>"""
-            for i, s in enumerate(D.STAFF)
-        )
+            )
+        staff_cards = "\n".join(staff_list)
     else:
         staff_cards = (f'        <div class="card reveal" style="grid-column:1/-1">'
                        f'<p style="margin:0;font-size:.95rem">{esc(D.STAFF_EMPTY_TEXT)}</p></div>')
@@ -928,12 +952,12 @@ def build_squad() -> None:
   <div class="container">
     <div class="section-head">
       <div>
-        <div class="eyebrow">Штаб</div>
-        <h2>Тренерский штаб</h2>
-        <p>Тренеры, аналитик и врач команды.</p>
+        <div class="eyebrow">Руководство</div>
+        <h2>Руководство командой</h2>
+        <p>Создатели, менеджер, тренеры и владелец клуба.</p>
       </div>
     </div>
-    <div class="grid grid-2">
+    <div class="grid grid-3">
 {staff_cards}
     </div>
   </div>
