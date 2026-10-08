@@ -79,6 +79,7 @@ SQUAD = [
     {"num": 20, "name": "Илюха", "pos": "Центральный нападающий", "group": "fw", "born": 2006, "goals": 4, "assists": 3},
     {"num": 21, "name": "Даник (RADCH)", "pos": "Центральный нападающий", "group": "fw", "born": 2007, "goals": 30, "assists": 3},
     {"num": 22, "name": "Сеня (ARSENNKKA)", "pos": "Правый/левый вингер", "group": "mf", "born": 2006, "goals": 4, "assists": 8},
+    {"num": 24, "name": "Игорь", "pos": "Центральный нападающий", "group": "fw", "born": None, "goals": 0, "assists": 3},
     {"num": 25, "name": "Влад", "pos": "Правый/левый вингер", "group": "mf", "born": None, "goals": 1, "assists": 2},
     {"num": 67, "name": "Палтор", "pos": "Полузащитник", "group": "mf", "born": 2006, "goals": 0, "assists": 0},
     {"num": 77, "name": "Тоха (TOFFA)", "pos": "Правый/левый полузащитник", "group": "mf", "born": 2007, "goals": 4, "assists": 3},

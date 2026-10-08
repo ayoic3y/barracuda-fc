@@ -7,6 +7,7 @@
 """
 from __future__ import annotations
 
+import hashlib
 import html
 import shutil
 import sys
@@ -19,6 +20,18 @@ OUT = ROOT / "barracuda-fc"
 
 sys.path.insert(0, str(SRC))
 import data as D  # noqa: E402
+
+def _asset_version() -> str:
+    """Отпечаток css/js — добавляется к ссылкам, чтобы браузер не показывал старый файл из кэша."""
+    h = hashlib.md5()
+    for name in ("style.css", "main.js"):
+        path = SRC / name
+        if path.exists():
+            h.update(path.read_bytes())
+    return h.hexdigest()[:8]
+
+
+ASSET_VER = _asset_version()
 
 CLUB = D.CLUB
 NAME = CLUB["name"]
@@ -182,7 +195,7 @@ def head(title: str, description: str, depth: int = 0, extra_head: str = "") -> 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{r}css/style.css">
+<link rel="stylesheet" href="{r}css/style.css?v={ASSET_VER}">
 {extra_head}</head>
 <body>"""
 
@@ -228,7 +241,7 @@ def footer(depth: int = 0) -> str:
         f'          <li><a href="{r}{href}">{esc(label)}</a></li>' for href, label in D.NAV
     )
     socials = "\n".join(
-        f'          <a href="{esc(s["url"])}" title="{esc(s["title"])}" rel="noopener">{esc(s["label"])}</a>'
+        f'          <a href="{esc(s["url"])}" title="{esc(s["title"])}" target="_blank" rel="noopener">{esc(s["label"])}</a>'
         for s in D.SOCIALS
     )
     return f"""
@@ -270,7 +283,7 @@ def footer(depth: int = 0) -> str:
     </div>
   </div>
 </footer>
-<script src="{r}js/main.js"></script>
+<script src="{r}js/main.js?v={ASSET_VER}"></script>
 </body>
 </html>"""
 
