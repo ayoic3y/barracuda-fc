@@ -59,30 +59,30 @@ NAV = [
 # --------------------------------------------------------------------------
 SQUAD = [
     {"num": 2, "name": "Вадим", "pos": "Центральный защитник", "group": "df", "born": None, "goals": 0, "assists": 0},
-    {"num": 3, "name": "Саня (HORSE)", "pos": "Вратарь", "group": "gk", "born": 2007, "goals": 1, "assists": 3},
-    {"num": 4, "name": "Ваня (VANEK)", "pos": "Центральный защитник", "group": "df", "born": 2007, "goals": 0, "assists": 6},
+    {"num": 3, "name": "Саня (HORSE)", "pos": "Вратарь", "group": "gk", "born": 2007, "goals": 1, "assists": 4},
+    {"num": 4, "name": "Ваня (VANEK)", "pos": "Центральный защитник", "group": "df", "born": 2007, "goals": 0, "assists": 7},
     {"num": 5, "name": "Игнат (ALIVARIAAAA)", "pos": "Центральный защитник", "group": "df", "born": 2006, "goals": 2, "assists": 7},
     {"num": 6, "name": "Андрей", "pos": "Центральный защитник", "group": "df", "born": None, "goals": 0, "assists": 0},
-    {"num": 7, "name": "Кирилл (KYZA)", "pos": "Атакующий полузащитник", "group": "mf", "born": 2008, "goals": 6, "assists": 11},
+    {"num": 7, "name": "Кирилл (KYZA)", "pos": "Атакующий полузащитник", "group": "mf", "born": 2008, "goals": 7, "assists": 11},
     {"num": 8, "name": "Влад (VLAD LUV)", "pos": "Левый/правый защитник", "group": "df", "born": 2005, "goals": 2, "assists": 1},
     {"num": 9, "name": "Тимур (TIMURIK)", "pos": "Центральный нападающий", "group": "fw", "born": 2007, "goals": 16, "assists": 4},
     {"num": 10, "name": "Илья (GIRO)", "pos": "Центральный нападающий", "group": "fw", "born": None, "goals": 2, "assists": 1},
     {"num": 11, "name": "Илья (АЙСИ)", "pos": "Правый/левый вингер", "group": "mf", "born": 2006, "goals": 4, "assists": 2},
-    {"num": 12, "name": "Макс", "pos": "Правый/левый вингер", "group": "mf", "born": 2006, "goals": 9, "assists": 9},
-    {"num": 13, "name": "Леха", "pos": "Правый/левый полузащитник", "group": "mf", "born": 2007, "goals": 2, "assists": 2},
+    {"num": 12, "name": "Макс", "pos": "Правый/левый вингер", "group": "mf", "born": 2006, "goals": 11, "assists": 10},
+    {"num": 13, "name": "Леха", "pos": "Правый/левый полузащитник", "group": "mf", "born": 2007, "goals": 2, "assists": 4},
     {"num": 14, "name": "Тимофей (BUTRIM)", "pos": "Левый/правый защитник", "group": "df", "born": 2007, "goals": 1, "assists": 0},
-    {"num": 15, "name": "Богдан", "pos": "Правый/левый полузащитник", "group": "mf", "born": None, "goals": 12, "assists": 4},
+    {"num": 15, "name": "Богдан", "pos": "Правый/левый полузащитник", "group": "mf", "born": None, "goals": 14, "assists": 4},
     {"num": 16, "name": "Мира (V)", "pos": "Левый/правый полузащитник", "group": "mf", "born": 2008, "goals": 2, "assists": 3},
     {"num": 17, "name": "Саша (ALEXANDRO)", "pos": "Левый защитник", "group": "df", "born": 2008, "goals": 0, "assists": 2},
-    {"num": 18, "name": "Арчи", "pos": "Правый/левый вингер", "group": "mf", "born": 2008, "goals": 11, "assists": 5},
+    {"num": 18, "name": "Арчи", "pos": "Правый/левый вингер", "group": "mf", "born": 2008, "goals": 15, "assists": 5},
     {"num": 19, "name": "Ега (BLOXA)", "pos": "Левый защитник", "group": "df", "born": 2006, "goals": 6, "assists": 9},
     {"num": 20, "name": "Илюха", "pos": "Центральный нападающий", "group": "fw", "born": 2006, "goals": 4, "assists": 3},
     {"num": 21, "name": "Даник (RADCH)", "pos": "Центральный нападающий", "group": "fw", "born": 2007, "goals": 30, "assists": 3},
-    {"num": 22, "name": "Сеня (ARSENNKKA)", "pos": "Правый/левый вингер", "group": "mf", "born": 2006, "goals": 4, "assists": 8},
+    {"num": 22, "name": "Сеня (ARSENNKKA)", "pos": "Правый/левый вингер", "group": "mf", "born": 2006, "goals": 5, "assists": 9},
     {"num": 24, "name": "Игорь", "pos": "Центральный нападающий", "group": "fw", "born": None, "goals": 0, "assists": 3},
     {"num": 25, "name": "Влад", "pos": "Правый/левый вингер", "group": "mf", "born": None, "goals": 1, "assists": 2},
     {"num": 67, "name": "Палтор", "pos": "Полузащитник", "group": "mf", "born": 2006, "goals": 0, "assists": 0},
-    {"num": 77, "name": "Тоха (TOFFA)", "pos": "Правый/левый полузащитник", "group": "mf", "born": 2007, "goals": 4, "assists": 3},
+    {"num": 77, "name": "Тоха (TOFFA)", "pos": "Правый/левый полузащитник", "group": "mf", "born": 2007, "goals": 4, "assists": 4},
     {"num": 888, "name": "Олеже", "pos": "Полузащитник", "group": "mf", "born": None, "goals": 0, "assists": 0},
 ]
 
@@ -95,7 +95,7 @@ SQUAD_GROUPS = [
 ]
 
 # --------------------------------------------------------------------------
-# Руководство командой (кружки с инициалами, как в карточках штаба)
+# Руководство командой (кружки с фото/инициалами)
 # --------------------------------------------------------------------------
 STAFF_EMPTY_TEXT = "Руководство скоро появится: имена, роли и фото пришлём позже."
 STAFF = [
@@ -115,20 +115,20 @@ TEAM_LOGOS = {
 SCORERS = [
     {"name": "Даник", "goals": 30, "assists": 3},
     {"name": "Тимур", "goals": 16, "assists": 4},
-    {"name": "Макс", "goals": 9, "assists": 9},
-    {"name": "Кузя", "goals": 6, "assists": 11},
-    {"name": "Богдан", "goals": 12, "assists": 4},
-    {"name": "Арчи", "goals": 11, "assists": 5},
+    {"name": "Макс", "goals": 11, "assists": 10},
+    {"name": "Кузя", "goals": 7, "assists": 11},
+    {"name": "Богдан", "goals": 14, "assists": 4},
+    {"name": "Арчи", "goals": 15, "assists": 5},
     {"name": "Егор", "goals": 6, "assists": 9},
-    {"name": "Сеня", "goals": 4, "assists": 8},
+    {"name": "Сеня", "goals": 5, "assists": 9},
     {"name": "Игнат", "goals": 2, "assists": 7},
     {"name": "Илюха", "goals": 4, "assists": 3},
-    {"name": "Тоха", "goals": 4, "assists": 3},
+    {"name": "Тоха", "goals": 4, "assists": 4},
     {"name": "Айси", "goals": 4, "assists": 2},
-    {"name": "Ванек", "goals": 0, "assists": 6},
+    {"name": "Ванек", "goals": 0, "assists": 7},
     {"name": "Мира", "goals": 2, "assists": 3},
-    {"name": "Саня Конь", "goals": 1, "assists": 3},
-    {"name": "Леха", "goals": 2, "assists": 2},
+    {"name": "Саня Конь", "goals": 1, "assists": 4},
+    {"name": "Леха", "goals": 2, "assists": 4},
     {"name": "Владос", "goals": 2, "assists": 1},
     {"name": "Гиро", "goals": 2, "assists": 1},
     {"name": "Влад", "goals": 1, "assists": 2},
@@ -151,43 +151,44 @@ MATCHES = [
     {"date": "2026-09-20T15:00", "comp": LEAGUE, "home": "Альтстарт", "away": "Барракуда", "score": [8, 7], "venue": "87 школа", "note": ""},
     {"date": "2026-09-27T15:00", "comp": LEAGUE, "home": "Барракуда", "away": "Некст", "score": [14, 10], "venue": "67 школа", "note": ""},
     {"date": "2026-10-04T15:00", "comp": LEAGUE, "home": "Барракуда", "away": "Снейкс", "score": [8, 7], "venue": "67 школа", "note": ""},
-    {"date": "2026-10-11T18:30", "comp": LEAGUE, "home": "Фейт", "away": "Барракуда", "score": None, "venue": "35 школа", "note": ""},
+    {"date": "2026-10-11T18:30", "comp": LEAGUE, "home": "Фейт", "away": "Барракуда", "score": [0, 3], "venue": "35 школа", "note": ""},
+    {"date": "2026-10-18T15:00", "comp": LEAGUE, "home": "Барракуда", "away": "Самураи", "score": [9, 3], "venue": "67 школа", "note": ""},
+    {"date": "2026-10-25T16:00", "comp": LEAGUE, "home": "Барракуда", "away": "Сереба", "score": None, "venue": "67 школа", "note": ""},
 ]
 
 # --------------------------------------------------------------------------
-# Таблица лиги медиа команд Минска (на 07.10.2026).
+# Таблица лиги медиа команд Минска (на 21.10.2026).
 #   w  — победы в основное время      wp — победы по пенальти
 #   dp — ничьи/поражения по пенальти  l  — поражения
 #   form — последние матчи слева направо: w, wp, d, lp, l
 # --------------------------------------------------------------------------
 LEAGUE_HEAD = "Лига медиа команд Минска"
-LEAGUE_NOTE = "Следующее обновление таблицы после игровых дней (суббота — воскресенье)"
+LEAGUE_NOTE = "В случае победы поднимемся на 2 место"
 
 STANDINGS = [
-    {"team": "Медведи", "played": 23, "w": 19, "wp": 1, "dp": 2, "l": 1, "gf": 143, "ga": 63, "pts": 61, "form": ["l", "w", "w", "w", "w"]},
+    {"team": "Медведи", "played": 25, "w": 20, "wp": 1, "dp": 3, "l": 1, "gf": 158, "ga": 70, "pts": 65, "form": ["w", "w", "w", "w", "lp"]},
     {"team": "Некст", "played": 32, "w": 11, "wp": 6, "dp": 1, "l": 14, "gf": 181, "ga": 183, "pts": 46, "form": ["wp", "w", "w", "l", "l"]},
-    {"team": "Барракуда", "played": 18, "w": 12, "wp": 1, "dp": 1, "l": 4, "gf": 122, "ga": 104, "pts": 39, "form": ["w", "w", "w", "w", "w"]},
-    {"team": "Уан Медиа", "played": 22, "w": 11, "wp": 1, "dp": 2, "l": 8, "gf": 127, "ga": 95, "pts": 37, "form": ["l", "l", "w", "w", "w"]},
-    {"team": "Альтстарт", "played": 18, "w": 8, "wp": 1, "dp": 2, "l": 7, "gf": 79, "ga": 93, "pts": 28, "form": ["w", "l", "w", "l", "lp"]},
-    {"team": "Ультрас", "played": 11, "w": 7, "wp": 2, "dp": 1, "l": 1, "gf": 75, "ga": 42, "pts": 26, "form": ["w", "l", "w", "wp", "wp"]},
-    {"team": "Лестери", "played": 11, "w": 7, "wp": 0, "dp": 1, "l": 3, "gf": 64, "ga": 45, "pts": 22, "form": ["w", "w", "w", "l", "lp"]},
+    {"team": "Барракуда", "played": 20, "w": 14, "wp": 1, "dp": 1, "l": 4, "gf": 134, "ga": 107, "pts": 45, "form": ["w", "w", "w", "w", "w"]},
+    {"team": "Уан Медиа", "played": 24, "w": 12, "wp": 1, "dp": 3, "l": 8, "gf": 147, "ga": 103, "pts": 41, "form": ["w", "w", "w", "lp", "w"]},
+    {"team": "Ультрас", "played": 14, "w": 9, "wp": 1, "dp": 3, "l": 1, "gf": 98, "ga": 50, "pts": 34, "form": ["wp", "wp", "w", "w", "wp"]},
+    {"team": "Альтстарт", "played": 20, "w": 10, "wp": 1, "dp": 2, "l": 7, "gf": 93, "ga": 103, "pts": 34, "form": ["w", "l", "lp", "w", "w"]},
+    {"team": "Лестери", "played": 12, "w": 7, "wp": 0, "dp": 1, "l": 4, "gf": 65, "ga": 51, "pts": 22, "form": ["w", "w", "l", "lp", "l"]},
     {"team": "Бобы", "played": 13, "w": 5, "wp": 0, "dp": 2, "l": 6, "gf": 59, "ga": 59, "pts": 17, "form": ["w", "l", "l", "lp", "w"]},
-    {"team": "Сереба", "played": 12, "w": 4, "wp": 1, "dp": 0, "l": 7, "gf": 68, "ga": 56, "pts": 14, "form": ["w", "l", "w", "wp", "w"]},
-    {"team": "Снейкс", "played": 17, "w": 4, "wp": 0, "dp": 2, "l": 11, "gf": 61, "ga": 93, "pts": 14, "form": ["lp", "l", "l", "l", "l"]},
+    {"team": "Сереба", "played": 14, "w": 4, "wp": 1, "dp": 0, "l": 9, "gf": 76, "ga": 78, "pts": 14, "form": ["w", "wp", "w", "l", "l"]},
+    {"team": "Снейкс", "played": 18, "w": 4, "wp": 0, "dp": 2, "l": 12, "gf": 65, "ga": 107, "pts": 14, "form": ["l", "l", "l", "l", "l"]},
     {"team": "МФК СКВАД", "played": 5, "w": 4, "wp": 0, "dp": 0, "l": 1, "gf": 33, "ga": 18, "pts": 12, "form": ["w", "l", "w", "w", "w"]},
+    {"team": "Самураи", "played": 9, "w": 3, "wp": 0, "dp": 1, "l": 5, "gf": 55, "ga": 48, "pts": 12, "form": ["l", "l", "wp", "w", "l"]},
     {"team": "Бум", "played": 9, "w": 4, "wp": 0, "dp": 0, "l": 5, "gf": 2, "ga": 8, "pts": 12, "form": ["w", "l", "l", "l", "l"]},
-    {"team": "Фейт", "played": 11, "w": 3, "wp": 0, "dp": 2, "l": 6, "gf": 0, "ga": 3, "pts": 11, "form": ["l", "lp", "w", "l", "l"]},
     {"team": "Кунцари", "played": 8, "w": 3, "wp": 0, "dp": 1, "l": 4, "gf": 3, "ga": 3, "pts": 10, "form": ["l", "l", "w", "l", "d"]},
     {"team": "Интрига", "played": 4, "w": 3, "wp": 0, "dp": 0, "l": 1, "gf": 21, "ga": 13, "pts": 9, "form": ["l", "w", "w", "w"]},
     {"team": "Ксавьер", "played": 10, "w": 2, "wp": 0, "dp": 2, "l": 6, "gf": 38, "ga": 59, "pts": 8, "form": ["l", "l", "l", "lp", "l"]},
-    {"team": "Чижиболс", "played": 4, "w": 2, "wp": 0, "dp": 1, "l": 1, "gf": 17, "ga": 16, "pts": 7, "form": ["w", "l", "w", "d"]},
-    {"team": "Самураи", "played": 6, "w": 2, "wp": 0, "dp": 1, "l": 3, "gf": 35, "ga": 35, "pts": 7, "form": ["lp", "lp", "w", "l", "l"]},
+    {"team": "Чижиболс", "played": 5, "w": 2, "wp": 0, "dp": 1, "l": 2, "gf": 17, "ga": 29, "pts": 7, "form": ["w", "l", "w", "d", "l"]},
     {"team": "Титан", "played": 6, "w": 1, "wp": 0, "dp": 1, "l": 3, "gf": 25, "ga": 32, "pts": 6, "form": ["w", "l", "l", "l", "wp"]},
     {"team": "Прилуки", "played": 5, "w": 0, "wp": 0, "dp": 2, "l": 3, "gf": 20, "ga": 32, "pts": 2, "form": ["d", "l", "l", "l", "lp"]},
     {"team": "Коробка", "played": 3, "w": 0, "wp": 0, "dp": 1, "l": 2, "gf": 13, "ga": 19, "pts": 1, "form": ["lp", "l", "l"]},
     {"team": "Гиппо", "played": 1, "w": 0, "wp": 0, "dp": 0, "l": 1, "gf": 6, "ga": 7, "pts": 0, "form": ["l"]},
     {"team": "Джуниорс", "played": 1, "w": 0, "wp": 0, "dp": 0, "l": 1, "gf": 6, "ga": 10, "pts": 0, "form": ["l"]},
-    {"team": "Крупица", "played": 1, "w": 0, "wp": 0, "dp": 0, "l": 1, "gf": 5, "ga": 12, "pts": 0, "form": ["l"]},
+    {"team": "Крупица", "played": 3, "w": 0, "wp": 0, "dp": 0, "l": 3, "gf": 15, "ga": 32, "pts": 0, "form": ["l", "l", "l"]},
 ]
 
 # --------------------------------------------------------------------------
