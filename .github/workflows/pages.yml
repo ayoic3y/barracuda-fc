@@ -30,6 +30,9 @@ jobs:
       - name: Собрать сайт
         run: python _src/generate.py
 
+      - name: Проверить сайт (ссылки, блоки, состав)
+        run: python _src/linkcheck.py
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3

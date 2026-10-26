@@ -21,7 +21,7 @@ for page in sorted(OUT.rglob("*.html")):
     for _attr, url in re.findall(r'(href|src)="([^"]+)"', text):
         if url.startswith(("http://", "https://", "mailto:", "tel:", "#", "data:")):
             continue
-        target = url.partition("#")[0]
+        target = url.partition("#")[0].partition("?")[0]
         if not target:
             continue
         links_checked += 1
@@ -51,7 +51,7 @@ must_have = [
     "Почему мы такие",
     "ЗОЖ",
     "вылетов в турнирах",
-    "после 6 месяцев",
+    "В случае победы поднимемся на 2 место",
     "Приходите поддержать",
     "промахами с метра",
     "Годовщина порванных крестов Айси",
@@ -141,3 +141,6 @@ print(f"размер сайта: {size:.2f} МБ")
 print("\nПРОБЛЕМЫ:" if problems else "\nПроблем нет")
 for p in problems:
     print("   !", p)
+
+# В CI (GitHub Actions) шаг падает, если есть проблемы: тогда сайт не публикуется
+sys.exit(1 if problems else 0)
